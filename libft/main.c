@@ -33,12 +33,53 @@ void *ft_memset(char *str, int c, size_t len) {
 		str[--len] = c;
 	return(str);
 }
-void ft_bzero(char *str, size_t n) {
+void ft_bzero(char *str, size_t n)
+{
 	while (n > 0)
 		str[--n] = 0;
 }
+int ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return(c - 32);
+	return (c);
+}
+int ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return(c + 32);
+	return (c);
+}
 
+char *ft_strchr(char *str, int c)
+{
+	int i;
 
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	if ((int*)str[i] == NULL)
+		return(NULL);
+	return(str+i);
+}
+
+/*
+memcpy
+memmove
+strlcpy
+strlcat
+strchr
+strrchr
+strncmp
+memchr
+memcmp
+strnstr
+atoi
+
+In order to implement the two following functions, you will use malloc():
+• calloc
+• strdup
+*/
 
 
 
@@ -61,7 +102,6 @@ int main() {
 		printf("\nCharacter: %c correct", c);
 		assert(ft_isalpha(c) == isalpha(c++));
 	}
-	*/
 	char str[50];
 
 	strcpy(str,"Hello World");
@@ -69,6 +109,11 @@ int main() {
 
 	bzero(str, 7);
 	printf("%s", str);
+	*/
+
+	char *str = "Gallop";
+	printf("1: %s\n", ft_strchr(str, 'o'));
+	printf("1: %s\n", strchr(str, 'o'));
 
 	return 0;
 }
