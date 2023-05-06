@@ -1,70 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emaydogd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/03 20:50:19 by emaydogd          #+#    #+#             */
+/*   Updated: 2023/05/05 18:37:10 by emaydogd         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <stdio.h>
-
-int ft_isalpha(int c) {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
-}
-int ft_isdigit(int c) {
-	return (c >= 0 && c <= 9);
-}
-int ft_isalnum(int c) {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return(1);
-	else if (c >= 0 && c <= 9)
-		return(1);
-	return(0);
-}
-int ft_isascii(int c) {
-	return (c >= 0 && c <= 127);
-}
-int ft_isprint(int c) {
-	return (0);
-}
-int ft_strlen(char *str) {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void *ft_memset(char *str, int c, size_t len) {
-	while (len > 0)
-		str[--len] = c;
-	return(str);
-}
-void ft_bzero(char *str, size_t n)
-{
-	while (n > 0)
-		str[--n] = 0;
-}
-int ft_toupper(int c)
-{
-	if (c >= 'a' && c <= 'z')
-		return(c - 32);
-	return (c);
-}
-int ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return(c + 32);
-	return (c);
-}
-
-char *ft_strchr(char *str, int c)
-{
-	int i;
-
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	if ((int*)str[i] == NULL)
-		return(NULL);
-	return(str+i);
-}
+#include <ctype.h>
+#include <assert.h>
+#include <string.h>
+#include "libft.h"
 
 /*
-memcpy
+
 memmove
 strlcpy
 strlcat
@@ -81,39 +33,27 @@ In order to implement the two following functions, you will use malloc():
 • strdup
 */
 
+int	main(void)
+{
 
+	char	str1[] = "Hello Weltt......";
+	char	str2[] = "Hello Weltt......";
+	char	dst1[] = "Byeee World";
+	char	dst2[] = "Byeee World";
+	size_t n = 5;
 
+	//printf("Dst: %s\n", (char *)ft_memmove(dst1, str1, n));
+	//printf("Dst: %s\n", (char *)memmove(dst2, str2, n));
 
+	//printf("%s\n", dst1);
+	//printf("%s\n", dst2);
 
-#include <ctype.h>
-#include <assert.h>
-#include <string.h>
-
-int main() {
-
-	/*
-	int c = 'A';
-	while (c <= 'Z') {
-		printf("Character: %c correct\n", c);
-		assert(ft_isalpha(c) == isalpha(c++));
-	}
-	c = 'a';
-	while (c <= 'z') {
-		printf("\nCharacter: %c correct", c);
-		assert(ft_isalpha(c) == isalpha(c++));
-	}
-	char str[50];
-
-	strcpy(str,"Hello World");
+	char	str[20] = "Moin User!";
+	char	str3[20] = "Moin User!";
+	memmove(str + 5, str, 12);
+	ft_memmove(str3 + 5, str3, 12);
 	printf("%s\n", str);
+	printf("%s\n", str3);
+	return (0);
 
-	bzero(str, 7);
-	printf("%s", str);
-	*/
-
-	char *str = "Gallop";
-	printf("1: %s\n", ft_strchr(str, 'o'));
-	printf("1: %s\n", strchr(str, 'o'));
-
-	return 0;
 }
