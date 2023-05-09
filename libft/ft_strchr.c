@@ -13,12 +13,9 @@
 
 char	*ft_strchr(char *str, int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	if (str[i] == NULL)
-		return (NULL);
-	return (str + i);
+	while (*str != '\0' && *str != (unsigned char)c)
+		str++;
+	if (*str == (unsigned char)c)
+		return ((char *)str);
+	return (0);
 }

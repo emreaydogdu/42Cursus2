@@ -13,10 +13,7 @@
 
 void	*ft_memset(void *str, int c, size_t len)
 {
-	char	*s;
-
-	s = str;
 	while (len--)
-		s[len] = c;
+		((char *)str)[len] = c;
 	return (str);
 }

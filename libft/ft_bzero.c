@@ -13,6 +13,6 @@
 
 void	ft_bzero(char *str, size_t n)
 {
-	while (n > 0)
-		str[--n] = 0;
+	while (n--)
+		*(char *)str++ = '\0';
 }

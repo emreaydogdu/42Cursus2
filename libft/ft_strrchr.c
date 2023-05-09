@@ -16,9 +16,11 @@ char	*ft_strrchr(char *str, int c)
 	int	i;
 
 	i = 0;
-	while (str[i] && str[i] != c)
+	while (str[i])
 		i++;
-	if (str[i] == NULL)
-		return (NULL);
-	return (str + i);
+	while (i > 0 && str[i] != (unsigned char)c)
+		i--;
+	if (str[i] == (unsigned char)c)
+		return ((char *)str + i);
+	return (0);
 }

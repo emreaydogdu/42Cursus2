@@ -17,17 +17,3 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 		((char *)dst)[n] = ((char *)src)[n];
 	return (dst);
 }
-/*
-char	str1[] = "Hello Weltt......";
-char	str2[] = "Hello Weltt......";
-char	dst1[] = "Byeee World";
-char	dst2[] = "Byeee World";
-size_t n = 15;
-
-ft_memcpy(dst1, str1, n);
-memcpy(dst2, str2, n);
-
-printf("%s\n", dst1);
-printf("%s\n", dst2);
-return (0);
-*/
